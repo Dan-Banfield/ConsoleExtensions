@@ -2,7 +2,7 @@
 
 ConsoleExtensions is a C# library built to add more features to the default console class.
 
-## Installation
+## Installation (NOT AVAILABLE YET)
 
 Use the package manager [nuget](https://www.nuget.org/) to install ConsoleExtensions.
 
