@@ -84,6 +84,30 @@ namespace ConsoleExtensions
             Console.Write("] " + content + "\n");
         }
 
+        /// <summary>
+        /// Writes text to the console prefixed with a red 'ERROR'.
+        /// </summary>
+        public static void LogError(string content)
+        {
+            Console.Write("[");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("ERROR");
+            Console.ForegroundColor = cachedConsoleTextColour;
+            Console.Write("] " + content);
+        }
+
+        /// <summary>
+        /// Writes text to the console prefixed with a red 'ERROR' and suffixes a newline character.
+        /// </summary>
+        public static void LogErrorLine(string content)
+        {
+            Console.Write("[");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("ERROR");
+            Console.ForegroundColor = cachedConsoleTextColour;
+            Console.Write("] " + content + "\n");
+        }
+
         #endregion
     }
 }
