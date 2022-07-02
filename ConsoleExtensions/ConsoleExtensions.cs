@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace ConsoleExtensions
 {
@@ -35,6 +36,23 @@ namespace ConsoleExtensions
         #endregion
 
         #region Console Logging Methods
+
+        /// <summary>
+        /// Writes text to the console prefixed with a green 'INPUT' and returns true if 'y' is entered, and false if 'n' is entered.
+        /// </summary>
+        public static bool LogInput(string content)
+        {
+            Console.Write("[");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("INPUT");
+            Console.ForegroundColor = cachedConsoleTextColour;
+            Console.Write("] " + content);
+
+            string input = Console.ReadLine().ToLower();
+            if (input == "y") return true;
+            if (input == "n") return false;
+            throw new Exception($"'{input}' is not a valid input response.");
+        }
 
         /// <summary>
         /// Writes text to the console prefixed with a cyan 'INFO'.
@@ -106,6 +124,18 @@ namespace ConsoleExtensions
             Console.Write("ERROR");
             Console.ForegroundColor = cachedConsoleTextColour;
             Console.Write("] " + content + "\n");
+        }
+
+        #endregion
+
+        #region Console Utility Methods
+
+        /// <summary>
+        /// Forces the application to close, even if background tasks are running.
+        /// </summary>
+        public static void Exit()
+        {
+            Process.GetCurrentProcess().Kill();
         }
 
         #endregion
