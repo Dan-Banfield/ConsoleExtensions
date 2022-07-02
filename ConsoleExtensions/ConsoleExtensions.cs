@@ -37,6 +37,30 @@ namespace ConsoleExtensions
         #region Console Logging Methods
 
         /// <summary>
+        /// Writes text to the console prefixed with a cyan 'INFO'.
+        /// </summary>
+        public static void LogInfo(string content)
+        {
+            Console.Write("[");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write("INFO");
+            Console.ForegroundColor = cachedConsoleTextColour;
+            Console.Write("] " + content);
+        }
+
+        /// <summary>
+        /// Writes text to the console prefixed with a cyan 'INFO' and suffixes a newline character.
+        /// </summary>
+        public static void LogInfoLine(string content)
+        {
+            Console.Write("[");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write("INFO");
+            Console.ForegroundColor = cachedConsoleTextColour;
+            Console.Write("] " + content + "\n");
+        }
+
+        /// <summary>
         /// Writes text to the console prefixed with a yellow 'WARNING'.
         /// </summary>
         public static void LogWarning(string content)
